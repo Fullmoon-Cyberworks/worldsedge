@@ -32,4 +32,4 @@ func _physics_process(delta): #Handles Movements, Direction, and All sprite anim
 	
 	motion = direction.normalized() * speed
 	motion = cart_to_iso(motion)
-	move_and_slide(motion)
+	move_and_collide(motion * delta)
