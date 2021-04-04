@@ -6,3 +6,34 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+Assets/Character/Male_0_Idle0.png.import
+Assets/Character/Male_0_Pickup0.png.import
+Assets/Character/Male_0_Pickup1.png.import
+Assets/Character/Male_0_Pickup2.png.import
+Assets/Character/Male_0_Pickup5.png.import
+Assets/Character/Male_0_Pickup6.png.import
+Assets/Character/Male_0_Pickup7.png.import
+Assets/Character/Male_0_Pickup8.png.import
+Assets/Character/Male_0_Run0.png.import
+Assets/Character/Male_0_Run1.png.import
+Assets/Character/Male_0_Run2.png.import
+Assets/Character/Male_0_Run3.png.import
+Assets/Character/Male_0_Run4.png.import
+Assets/Character/Male_0_Run5.png.import
+Assets/Character/Male_0_Run6.png.import
+Assets/Character/Male_0_Run7.png.import
+Assets/Character/Male_0_Run8.png.import
+Assets/Character/Male_0_Run9.png.import
+Assets/Character/Male_1_Idle0.png.import
+Assets/Character/Male_1_Pickup0.png.import
+Assets/Character/Male_1_Pickup1.png.import
+Assets/Character/Male_1_Pickup2.png.import
+Assets/Character/Male_1_Pickup3.png.import
+Assets/Character/Male_1_Pickup4.png.import
+Assets/Character/Male_1_Pickup5.png.import
+Assets/Character/Male_1_Pickup6.png.import
+Assets/Character/Male_1_Pickup7.png.import
+Assets/Character/Male_1_Pickup8.png.import
+Assets/Character/Male_1_Pickup9.png.import
+Assets/Character/Male_1_Run0.png.import
+Assets/Character/Male_1_Run1.png.import

@@ -14,6 +14,16 @@ func _physics_process(delta): #Handles Movements, Direction, and All sprite anim
 		direction += Vector2(1,0)
 	elif Input.is_action_just_released("ui_right"):
 			$AnimatedSprite.play("1_Idle")
+	if Input.is_action_pressed("ui_right"):
+		if Input.is_action_pressed("ui_down"):
+			$AnimatedSprite.play("2_Run")
+			print("WE REACHED THIS LINE OF CODE - RIGHT_DOWN")
+			direction += Vector2(1,1)
+	if Input.is_action_pressed("ui_right"):
+		if Input.is_action_pressed("ui_up"):
+			$AnimatedSprite.play("0_Run")
+			print("WE REACHED THIS LINE OF CODE - RIGHT_UP")
+			direction += Vector2(1,1)
 	if Input.is_action_pressed("ui_down"):
 		$AnimatedSprite.play("3_Run")
 		direction += Vector2(0,1)
@@ -22,6 +32,16 @@ func _physics_process(delta): #Handles Movements, Direction, and All sprite anim
 	if Input.is_action_pressed("ui_left"):
 		$AnimatedSprite.play("5_Run")
 		direction += Vector2(-1,0)
+	if Input.is_action_pressed("ui_left"):
+		if Input.is_action_pressed("ui_down"):
+			$AnimatedSprite.play("4_Run")
+			print("WE REACHED THIS LINE OF CODE - LEFT_DOWN")
+			direction += Vector2(-1,1)
+	if Input.is_action_pressed("ui_left"):
+		if Input.is_action_pressed("ui_up"):
+			$AnimatedSprite.play("6_Run")
+			print("WE REACHED THIS LINE OF CODE - LEFT_UP")
+			direction += Vector2(-1,-1)
 	elif Input.is_action_just_released("ui_left"):
 			$AnimatedSprite.play("5_Idle")
 	if Input.is_action_pressed("ui_up"):
