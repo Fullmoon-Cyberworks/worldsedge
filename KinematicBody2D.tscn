@@ -308,6 +308,7 @@ position = Vector2( 0, 139 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3, -2 )
 frames = SubResource( 2 )
 animation = "3_Idle"
 playing = true
