@@ -1,47 +1,18 @@
 extends KinematicBody2D
 
-export(int) var speed = 5
-var motion = Vector2()
+const ACCEL = 250
+const MAX_SPEED = 100
+const FRICTION = 250
 
-func cart_to_iso(cartesian):#changes cartersian coordinates to an isometric functioning coordinate system
-	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
+var motion = Vector2.ZERO
 
 func _physics_process(delta): #Handles Movements, Direction, and All sprite animation for the player character
-	var direction = Vector2()
-	
-	if Input.is_action_pressed("ui_right"):
-		direction += Vector2(1,0)
-		$AnimatedSprite.play("1_Run")
-	elif Input.is_action_just_released("ui_right"):
-			$AnimatedSprite.play("1_Idle")
-	if Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_down"):
-		direction += Vector2(1,1)
-		$AnimatedSprite.play("2_Run")
-	if Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_up"):
-		direction += Vector2(1,-1)
-		$AnimatedSprite.play("0_Run")
-	if Input.is_action_pressed("ui_down"):
-		direction += Vector2(0,1)
-		$AnimatedSprite.play("3_Run")
-	elif Input.is_action_just_released("ui_down"):
-			$AnimatedSprite.play("3_Idle")
-	if Input.is_action_pressed("ui_left"):
-		direction += Vector2(-1,0)
-		$AnimatedSprite.play("5_Run")
-	if Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_down"):
-		direction += Vector2(-1,1)
-		$AnimatedSprite.play("4_Run")
-	if Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_up"):
-		direction += Vector2(-1,-1)
-		$AnimatedSprite.play("6_Run")
-	elif Input.is_action_just_released("ui_left"):
-			$AnimatedSprite.play("5_Idle")
-	if Input.is_action_pressed("ui_up"):
-		direction += Vector2(0,-1)
-		$AnimatedSprite.play("7_Run")
-	elif Input.is_action_just_released("ui_up"):
-			$AnimatedSprite.play("7_Idle")
-	
-	motion = direction.normalized() * speed
-	motion = cart_to_iso(motion)
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+	if input_vector != Vector2.ZERO:
+		motion = motion.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
+	else:
+		motion = motion.move_toward(Vector2.ZERO, FRICTION * delta)
 	move_and_collide(motion * delta)
